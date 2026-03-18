@@ -22,6 +22,11 @@ FORCE=false
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --package)
+      if [[ $# -lt 2 || "$2" == --* ]]; then
+        echo "Error: --package requires a non-empty value." >&2
+        echo "Usage: $0 --package <name> [--force]" >&2
+        exit 1
+      fi
       PACKAGE="$2"
       shift 2
       ;;
@@ -66,8 +71,8 @@ while IFS= read -r -d '' src_file; do
     continue
   fi
 
-  mkdir -p "$dest_dir"
-  cp "$src_file" "$dest_file"
+  mkdir -p -- "$dest_dir"
+  cp -- "$src_file" "$dest_file"
   echo "  WRITE: $rel_path"
 done < <(find "$PACKAGE_DIR" -type f -print0)
 

@@ -43,7 +43,7 @@ Get-ChildItem -Path $PackageDir -Recurse -File | ForEach-Object {
         New-Item -ItemType Directory -Path $DestDir -Force | Out-Null
     }
 
-    Copy-Item -Path $SrcFile -Destination $DestFile -Force
+    Copy-Item -LiteralPath $SrcFile -Destination $DestFile -Force
     Write-Host "  WRITE: $RelPath"
 }
 

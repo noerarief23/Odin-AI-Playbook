@@ -33,6 +33,26 @@
 - Use `xunit` for tests; place them in a `*.Tests` project.
 - Prefer dependency injection; avoid static state.
 
+## Skills
+
+Reusable task procedures are stored in `.ai/skills/`. When performing a common task, follow the relevant skill's step-by-step procedure:
+
+| Task | Skill |
+|---|---|
+| Code review / PR audit | `.ai/skills/code-review/SKILL.md` |
+| Debugging a bug or error | `.ai/skills/debugging/SKILL.md` |
+| Writing or improving tests | `.ai/skills/testing/SKILL.md` |
+| Refactoring existing code | `.ai/skills/refactoring/SKILL.md` |
+| Fixing a broken CI/CD pipeline | `.ai/skills/cicd-troubleshooting/SKILL.md` |
+| Security audit | `.ai/skills/security-review/SKILL.md` |
+| API design or review | `.ai/skills/api-design/SKILL.md` |
+| Production incident response | `.ai/skills/incident-response/SKILL.md` |
+| Terraform / IaC review | `.ai/skills/terraform-iac-review/SKILL.md` |
+| Docker hardening | `.ai/skills/docker-container-hardening/SKILL.md` |
+
+To invoke a skill explicitly:
+> "Follow the procedure in `.ai/skills/security-review/SKILL.md` and audit `src/auth/jwt.ts`."
+
 ## Output Expectations
 
 When responding to a code-change request, always provide:

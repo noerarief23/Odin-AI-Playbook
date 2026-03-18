@@ -46,7 +46,7 @@ version: 1.0.0
 
 ## Output format
 
-```
+````
 ## Summary
 <Brief overview of the image/service and overall posture>
 
@@ -65,7 +65,7 @@ version: 1.0.0
 ```dockerfile
 <key hardened sections>
 ```
-```
+````
 
 ## Common pitfalls
 - `RUN apt-get install` without `--no-install-recommends` pulls in unnecessary packages that increase the attack surface.
@@ -87,7 +87,7 @@ CMD ["node", "server.js"]
 ```
 
 **Finding**:
-```
+````
 ### High
 - **Dockerfile:5** No USER instruction; container runs as root.
   **Remediation**: Add a non-root user:
@@ -95,7 +95,7 @@ CMD ["node", "server.js"]
   RUN addgroup --system app && adduser --system --ingroup app app
   USER app
   ```
-```
+````
 
 ### Example 2 — Secret in ENV
 

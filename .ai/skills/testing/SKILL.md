@@ -41,7 +41,7 @@ version: 1.0.0
 
 ## Output format
 
-```
+````
 ## Test plan
 <Bullet list of test cases organised by function/method>
 
@@ -57,7 +57,7 @@ version: 1.0.0
 ```bash
 <command to run the tests>
 ```
-```
+````
 
 ## Common pitfalls
 - Do not test implementation details (private methods, internal state); test observable behaviour.

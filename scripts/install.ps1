@@ -39,15 +39,15 @@ function Copy-PlaybookDir {
         [string]$Label
     )
     Write-Host $Label
-    Get-ChildItem -Path $SrcRoot -Recurse -File | ForEach-Object {
-        $SrcFile  = $_.FullName
+    foreach ($Item in (Get-ChildItem -Path $SrcRoot -Recurse -File)) {
+        $SrcFile  = $Item.FullName
         $RelPath  = $SrcFile.Substring($SrcRoot.Length).TrimStart('\', '/')
         $DestFile = Join-Path $TargetDir $RelPath
         $DestDir  = Split-Path -Parent $DestFile
 
         if ((Test-Path $DestFile) -and (-not $Force)) {
             Write-Host "  SKIP (exists, use -Force to overwrite): $RelPath"
-            return
+            continue
         }
 
         if (-not (Test-Path $DestDir)) {
@@ -72,8 +72,8 @@ Copy-PlaybookDir -SrcRoot $PackageDir -Label "Installing package '$Package' into
 $SkillsDir = Join-Path $PlaybookRoot ".ai\skills"
 if (Test-Path $SkillsDir) {
     Write-Host "Installing skills from .ai\skills\ ..."
-    Get-ChildItem -Path $SkillsDir -Recurse -File | ForEach-Object {
-        $SrcFile  = $_.FullName
+    foreach ($Item in (Get-ChildItem -Path $SkillsDir -Recurse -File)) {
+        $SrcFile  = $Item.FullName
         # Keep the .ai\skills\... prefix by stripping from PlaybookRoot
         $RelPath  = $SrcFile.Substring($PlaybookRoot.Length).TrimStart('\', '/')
         $DestFile = Join-Path $TargetDir $RelPath
@@ -81,7 +81,7 @@ if (Test-Path $SkillsDir) {
 
         if ((Test-Path $DestFile) -and (-not $Force)) {
             Write-Host "  SKIP (exists, use -Force to overwrite): $RelPath"
-            return
+            continue
         }
 
         if (-not (Test-Path $DestDir)) {

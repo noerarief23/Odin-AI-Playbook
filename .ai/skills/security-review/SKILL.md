@@ -37,7 +37,7 @@ version: 1.0.0
 
 ## Output format
 
-```
+````
 ## Attack surface
 <Bullet list of entry points identified>
 
@@ -56,7 +56,7 @@ version: 1.0.0
 ```bash
 <command to run dependency vulnerability scan>
 ```
-```
+````
 
 ## Common pitfalls
 - Do not mark all findings as `critical`; calibrate to actual exploitability and impact.

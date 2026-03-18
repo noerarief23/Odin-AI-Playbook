@@ -34,7 +34,7 @@ version: 1.0.0
 
 ## Output format
 
-```
+````
 ## Summary
 <2–4 sentence summary of the change>
 
@@ -51,7 +51,7 @@ version: 1.0.0
 ```diff
 <patch for must-fix items>
 ```
-```
+````
 
 If there are no findings in a category, omit that section.
 

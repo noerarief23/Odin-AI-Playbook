@@ -40,7 +40,7 @@ version: 1.0.0
 
 ## Output format
 
-```
+````
 ## Summary
 <Brief overview of what the Terraform config provisions>
 
@@ -57,7 +57,7 @@ version: 1.0.0
 
 ## Plan review (if plan provided)
 <Notable changes, unexpected destroys, or confirms LGTM>
-```
+````
 
 ## Common pitfalls
 - Do not approve a `terraform apply` that replaces a production database without a verified backup and downtime window.
@@ -79,7 +79,7 @@ resource "aws_s3_bucket_public_access_block" "example" {
 ```
 
 **Finding**:
-```
+````
 ### Critical
 - **s3.tf:3-6** S3 public access block is disabled, potentially exposing bucket contents publicly.
   **Remediation**:
@@ -89,7 +89,7 @@ resource "aws_s3_bucket_public_access_block" "example" {
   ignore_public_acls  = true
   restrict_public_buckets = true
   ```
-```
+````
 
 ### Example 2 — Missing destroy protection
 
@@ -102,7 +102,7 @@ resource "aws_rds_instance" "main" {
 ```
 
 **Finding**:
-```
+````
 ### High
 - **rds.tf:1** Production RDS instance has no `prevent_destroy` lifecycle rule.
   **Remediation**:
@@ -111,4 +111,4 @@ resource "aws_rds_instance" "main" {
     prevent_destroy = true
   }
   ```
-```
+````

@@ -51,27 +51,31 @@ version: 1.0.0
   - `Microsoft.AspNetCore.*`
   - `Microsoft.EntityFrameworkCore.*`
   - `Microsoft.Extensions.*`
-  - `System.*` packages that have been inbox since .NET 10 (remove them — they are no longer needed as explicit dependencies).
+  - `System.*` packages should **not** be removed broadly. Only remove a specific `System.*` `PackageReference` when it is confirmed to be inbox for `net10.0` in that target project, and keep it if the project still targets earlier TFMs or if removal changes package resolution.
 - For third-party packages, check NuGet.org for a release that supports `net10.0`; update `PackageReference` versions accordingly.
-- Use `dotnet restore` after edits to verify dependency resolution.
+- After package edits — especially any removal of a `System.*` package — run `dotnet restore` and `dotnet build` to verify dependency resolution and that the project still compiles successfully.
 
 ### 5. Fix breaking API changes
 Apply the following changes where present in the codebase:
 
 | Area | .NET Core / earlier API | .NET 10 replacement |
 |---|---|---|
-| HTTP | `HttpContext.Abort()` (sync) | `await httpContext.Response.CompleteAsync()` |
 | Auth | `IHostingEnvironment` | `IWebHostEnvironment` |
-| Hosting | `WebHost.CreateDefaultBuilder` | `WebApplication.CreateBuilder` (minimal hosting model) |
+| Hosting | `WebHost.CreateDefaultBuilder` | Keep existing hosting unless already using, or explicitly migrating to, the minimal hosting model; in that case use `WebApplication.CreateBuilder` |
 | JSON | `Newtonsoft.Json` (if used only for basic serialisation) | `System.Text.Json` |
 | Nullable | No `#nullable enable` | Enable nullable reference types per project; fix warnings |
 | Minimal APIs | N/A (new pattern) | Offer to migrate controller-based endpoints if explicitly asked |
 | Blazor | Legacy `@page` routing quirks | Update to latest Blazor routing conventions if applicable |
 
-Scan for usages of APIs removed or obsoleted between the source TFM and .NET 10 using:
+Scan for usages of APIs removed or obsoleted between the source TFM and .NET 10 by running `dotnet build` and reviewing all `CS*` compiler errors and warnings in the output. On Unix:
 ```bash
 dotnet build 2>&1 | grep -E "(error|warning) CS"
 ```
+On Windows (PowerShell):
+```powershell
+dotnet build 2>&1 | Select-String -Pattern "(error|warning) CS"
+```
+Alternatively, open the build output in any IDE (Visual Studio, Rider, VS Code) to inspect the same errors without shell tools.
 Fix each compiler error before proceeding.
 
 ### 6. Update runtime/environment references

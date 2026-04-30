@@ -46,7 +46,7 @@ Returns formatted output
 | Incident Response | [`incident-response/`](incident-response/SKILL.md) | Triage, contain, resolve, and document production incidents |
 | Terraform IaC Review | [`terraform-iac-review/`](terraform-iac-review/SKILL.md) | Review Terraform modules for security, correctness, and best practices |
 | Docker Container Hardening | [`docker-container-hardening/`](docker-container-hardening/SKILL.md) | Audit and harden Dockerfile and container runtime config |
-| .NET Upgrade to .NET 10 | [`dotnet-upgrade/`](dotnet-upgrade/SKILL.md) | Upgrade a .NET Core solution to .NET 10; update project files, packages, broken APIs, and CI/container references |
+| .NET Upgrade to .NET 10 | [`dotnet-upgrade/`](dotnet-upgrade/SKILL.md) | Upgrade a .NET Core solution to .NET 10; update project files, packages, breaking API changes, and CI/container references |
 
 ---
 

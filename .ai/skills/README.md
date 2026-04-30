@@ -47,6 +47,14 @@ Returns formatted output
 | Terraform IaC Review | [`terraform-iac-review/`](terraform-iac-review/SKILL.md) | Review Terraform modules for security, correctness, and best practices |
 | Docker Container Hardening | [`docker-container-hardening/`](docker-container-hardening/SKILL.md) | Audit and harden Dockerfile and container runtime config |
 | .NET Upgrade to .NET 10 | [`dotnet-upgrade/`](dotnet-upgrade/SKILL.md) | Upgrade a .NET Core solution to .NET 10; update project files, packages, breaking API changes, and CI/container references |
+| Architecture Review | [`architecture-review/`](architecture-review/SKILL.md) | Review a system or service architecture end-to-end for correctness, scalability, security posture, and operational readiness |
+| Performance Profiling | [`performance-profiling/`](performance-profiling/SKILL.md) | Profile and optimise a service or code path for CPU, memory, or latency regressions; identify bottlenecks with measurable improvement steps |
+| Observability Review | [`observability-review/`](observability-review/SKILL.md) | Review a service for observability gaps — structured logging, metrics, distributed tracing, dashboards, and alerting |
+| Dependency & Supply Chain Audit | [`dependency-supply-chain-audit/`](dependency-supply-chain-audit/SKILL.md) | Audit project dependencies for known vulnerabilities, outdated packages, insecure pinning, licence risks, and supply-chain threats |
+| Release Versioning & Changelog | [`release-versioning-changelog/`](release-versioning-changelog/SKILL.md) | Execute a complete release workflow — SemVer bump, changelog generation, git tagging, and release notes |
+| Documentation & ADR Writer | [`documentation-adr-writer/`](documentation-adr-writer/SKILL.md) | Write, update, or review technical documentation and Architecture Decision Records (ADRs) |
+| Repo Onboarding & Discovery | [`repo-onboarding-discovery/`](repo-onboarding-discovery/SKILL.md) | Rapidly map an unfamiliar repository — entry points, module boundaries, key configuration, and safe change paths |
+| Data & SQL Migration Review | [`data-sql-migration-review/`](data-sql-migration-review/SKILL.md) | Review SQL queries, schema changes, data migrations, and rollback plans for correctness, performance, safety, and reversibility |
 
 ---
 
